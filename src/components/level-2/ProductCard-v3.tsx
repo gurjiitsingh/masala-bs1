@@ -14,27 +14,17 @@ import AddOn from "../level-1/AddOn";
 import { formatCurrencyNumber } from "@/utils/formatCurrency";
 import Image from "next/image";
 
-import { Cinzel, Lato, Roboto } from "next/font/google";
+import { Cinzel, Lato, Roboto, Abel } from "next/font/google";
 // import { Montserrat, Oswald, Bebas_Neue, Anton, Poppins } from "next/font/google";
 // import { Great_Vibes, Pacifico, Dancing_Script } from "next/font/google";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
-//const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
-
-// export const vibes = Great_Vibes({ subsets: ["latin"], weight: ["400"] });
-// export const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
-// export const dancing = Dancing_Script({ subsets: ["latin"], weight: ["400", "700"] });
-
-// export const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700", "900"] });
-// export const oswald = Oswald({ subsets: ["latin"], weight: ["400", "700"] });
-// export const bebas = Bebas_Neue({ subsets: ["latin"], weight: ["400"] });
-// export const anton = Anton({ subsets: ["latin"], weight: ["400"] });
-
-//const fonts = { Cinzel: cinzel, Lato: lato, Roboto: roboto, Poppins: poppins };
+const abel = Abel({ subsets: ["latin"], weight: "400" });
 const fonts = {
   Cinzel: cinzel,
+  Abel: abel,
   // Playfair: playfair,
   // Cormorant: cormorant,
   // Lora: lora,
@@ -56,6 +46,7 @@ const fontDescription =
   fonts[process.env.NEXT_PUBLIC_FONT_DESCRIPTION as keyof typeof fonts] || lato;
 const fontPrice =
   fonts[process.env.NEXT_PUBLIC_FONT_PRICE as keyof typeof fonts] || roboto;
+
 
 export default function ProdcutCardHorizontical({
   product,
@@ -157,7 +148,7 @@ export default function ProdcutCardHorizontical({
               onClick={() =>
                 alert(product.productDesc ?? "No description available")
               }
-              className={`${fontDescription.className} text-sm text-gray-600 mt-1 line-clamp-3 cursor-pointer`}
+              className={`${fontDescription.className} text-md text-gray-600 mt-1 line-clamp-3 cursor-pointer`}
             >
               {product.productDesc}
             </p>
